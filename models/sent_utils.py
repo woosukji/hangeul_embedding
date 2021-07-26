@@ -7,6 +7,10 @@ from sklearn.decomposition import TruncatedSVD
 from gensim.models.doc2vec import TaggedDocument
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+# added directory for libraries
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../lib')))
+
 from preprocess import get_tokenizer
 
 sys.path.append('models')

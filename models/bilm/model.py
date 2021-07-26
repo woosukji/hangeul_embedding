@@ -508,6 +508,7 @@ class BidirectionalLanguageModelGraph(object):
             if direction == 'forward':
                 layer_input = self.embedding
             else:
+                
                 layer_input = tf.reverse_sequence(
                     self.embedding,
                     sequence_lengths,

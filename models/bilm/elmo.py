@@ -57,7 +57,7 @@ def weight_layers(name, bilm_ops, l2_coef=None,
             return tf.nn.batch_normalization(
                 x, mean, variance, None, None, 1E-12
             )
-
+ 
         if use_top_only:
             layers = tf.split(lm_embeddings, n_lm_layers, axis=1)
             # just the top layer

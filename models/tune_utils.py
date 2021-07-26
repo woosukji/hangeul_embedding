@@ -1,7 +1,8 @@
 import sys, os, random, argparse, re, collections
 import numpy as np
 import tensorflow as tf
-from tensorflow.contrib import nccl
+#from tensorflow.contrib import nccl
+sys.path.append('lib')
 from gensim.models import Word2Vec
 from collections import defaultdict
 from scipy.stats import truncnorm
@@ -307,11 +308,11 @@ class Tuner(object):
         for current_input_feed in train_batches:
             _, _, _, current_loss = sess.run(output_feed, current_input_feed)
             checkpoint_loss += current_loss
-            if global_step.eval(sess) % self.eval_every == 0:
-                tf.logging.info("global step %d train loss %.4f" %
-                                (global_step.eval(sess), checkpoint_loss / self.eval_every))
-                checkpoint_loss = 0.0
-                self.validation(sess, saver, global_step)
+            #if global_step.eval(sess) % self.eval_every == 0:
+            tf.logging.info("global step %d train loss %.4f" %
+                            (global_step.eval(sess), checkpoint_loss / self.eval_every))
+                #checkpoint_loss = 0.0
+                #self.validation(sess, saver, global_step)
 
     def validation(self, sess, saver, global_step):
         valid_loss, valid_pred, valid_num_data = 0, 0, 0
